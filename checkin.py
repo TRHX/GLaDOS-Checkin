@@ -29,7 +29,7 @@ def start():
     if 'message' in checkin.text:
         mess = checkin.json()['message']
         if mess == '\u6ca1\u6709\u6743\u9650':
-            requests.get('https://sc.ftqq.com/' + sckey + '.send?text=cookie过期')
+            requests.get('https://sctapi.ftqq.com/' + sckey + '.send?text=cookie过期')
         time = state.json()['data']['leftDays']
         time = time.split('.')[0]
         #print(time)
@@ -38,9 +38,9 @@ def start():
         
 def notice(time,sckey,sever,mess):
     if sever == 'on':
-        requests.get('https://sc.ftqq.com/' + sckey + '.send?text='+mess+'，you have '+time+' days left')
+        requests.get('https://sctapi.ftqq.com/' + sckey + '.send?text='+mess+'，you have '+time+' days left')
     else:
-        requests.get('https://sc.ftqq.com/' + sckey + '.send?text=通知没打开')
+        requests.get('https://sctapi.ftqq.com/' + sckey + '.send?text=通知没打开')
         
 def main_handler(event, context):
   return start()
